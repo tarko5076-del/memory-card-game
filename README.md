@@ -5,7 +5,7 @@ A modern, visually appealing **memory matching game** built with React, featurin
 - Glassmorphism card design  
 - Dramatic 3D flip animations with cinematic light sweep  
 - 4 beautiful themes: Animals • Space • Fruits • Classic Faces  
-- 3 difficulty levels: Easy (8 cards), Medium (16), Hard (36 cards)  
+- 3 difficulty levels: Easy (8 cards), Medium (16), Hard (24 cards)  
 - Timer, moves counter, score system & high-score saved in browser  
 - Match / mismatch sound effects  
 - Fully responsive layout (mobile → desktop)  
