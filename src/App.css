@@ -1,9 +1,17 @@
 /* src/App.css - Modern Glassmorphism Memory Game with Dramatic Card Flip */
+/* Corrected for reliable mobile touch support (2025/2026 mobile browsers) */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Global mobile touch improvements */
+html, body, #root {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;   /* Removes blue/purple tap highlight */
+  touch-action: manipulation;                  /* Improves touch → click conversion */
 }
 
 body {
@@ -50,6 +58,16 @@ body {
   margin-bottom: 1.2rem;
 }
 
+.diff-btn,
+.theme-btn,
+.reset-btn,
+.play-again-btn {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+}
+
 .diff-btn {
   padding: 0.75rem 1.6rem;
   border: 1.5px solid rgba(255, 255, 255, 0.18);
@@ -57,7 +75,6 @@ body {
   backdrop-filter: blur(10px);
   color: white;
   border-radius: 999px;
-  cursor: pointer;
   font-size: clamp(0.95rem, 3vw, 1.1rem);
   font-weight: 600;
   transition: all 0.28s ease;
@@ -98,7 +115,6 @@ body {
   backdrop-filter: blur(10px);
   color: white;
   border-radius: 999px;
-  cursor: pointer;
   font-size: 0.98rem;
   font-weight: 600;
   transition: all 0.28s ease;
@@ -156,7 +172,6 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 999px;
-  cursor: pointer;
   box-shadow: 0 8px 25px rgba(236, 72, 153, 0.35);
   transition: all 0.3s ease;
 }
@@ -177,12 +192,16 @@ body {
   justify-content: center;
 }
 
-/* Dramatic cinematic card flip */
+/* ── CARD – MOBILE TOUCH FIXES HERE ── */
 .card {
   aspect-ratio: 1 / 1;
   width: 100%;
   position: relative;
   cursor: pointer;
+  touch-action: manipulation;                    /* ← Critical for mobile */
+  -webkit-tap-highlight-color: transparent;      /* ← No ugly highlight */
+  user-select: none;                             /* ← Prevents selection */
+  pointer-events: auto;                          /* ← Ensures card catches events */
   border-radius: 16px;
   perspective: 1800px;
   transform-style: preserve-3d;
@@ -420,7 +439,6 @@ body {
   font-weight: 700;
   border-radius: 999px;
   margin-top: 1.8rem;
-  cursor: pointer;
   box-shadow: 0 10px 30px rgba(167, 139, 250, 0.45);
   transition: all 0.32s ease;
 }
